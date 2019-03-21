@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const hbs = require('hbs');
+const port = process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname + '/views/partials');
 //-- Middlewires
@@ -20,4 +21,6 @@ app.get('/contact',(req, res) => {
     res.render('contact.hbs');
 });
 
-app.listen(3000);
+app.listen(port, ()=> {
+    console.log(`Server is up on port: ${port}`);
+});
